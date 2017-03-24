@@ -249,6 +249,12 @@
             <version>${mule.version}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+		    <groupId>org.mule.modules</groupId>
+		    <artifactId>mule-module-db</artifactId>
+		    <version>3.8.1</version>
+		</dependency>
+        
     </dependencies>
 	
 	<repositories>
