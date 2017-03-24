@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "phoneOut1"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "phoneOut"
+        }
+    },
+    "id": "b882642e-3437-478c-bc4a-aa1126369363",
+    "version": "5.2.0.0"
+}

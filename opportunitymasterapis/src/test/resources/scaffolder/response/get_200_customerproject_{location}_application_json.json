@@ -1,0 +1,90 @@
+[
+  {
+    "Sector": "Electronics",
+    "Billing details": "312 Constitution Place",
+    "Contact": "(512) 787-6200",
+    "Address": "312 Constitution Place",
+    "CustomerAccount": "Edge Communications",
+    "Location": "usa",
+    "ProjectName": "EDGE02",
+    "CustomerName": "Kathy",
+    "ID": "3"
+  },
+  {
+    "Sector": "Apparel",
+    "Billing details": "525 S. Lexington Ave,Burlington, NC 27215",
+    "Contact": "(336) 222-7000",
+    "Address": "525 S. Lexington Ave,Burlington, NC 27215",
+    "CustomerAccount": "Burlington Textiles Corp of America",
+    "Location": "usa",
+    "ProjectName": "Burlington Textiles01",
+    "CustomerName": "Janice",
+    "ID": "1"
+  },
+  {
+    "Sector": "Energy",
+    "Billing details": "1301 Avenue of the Americas ",
+    "Contact": "(42)654654565",
+    "Address": "1301 Avenue of the Americas ",
+    "CustomerAccount": "United Oil & Gas Corp",
+    "Location": "usa",
+    "ProjectName": "uo01",
+    "CustomerName": "Anna",
+    "ID": "22"
+  },
+  {
+    "Sector": "Energy",
+    "Billing details": "1301 Avenue of the Americas ",
+    "Contact": "(573)523533452",
+    "Address": "1301 Avenue of the Americas ",
+    "CustomerAccount": "United Oil & Gas Corp",
+    "Location": "usa",
+    "ProjectName": "uo02",
+    "CustomerName": "Ashley",
+    "ID": "23"
+  },
+  {
+    "Sector": "Energy",
+    "Billing details": "1301 Avenue of the Americas ",
+    "Contact": "(53)523533452",
+    "Address": "1301 Avenue of the Americas ",
+    "CustomerAccount": "United Oil & Gas Corp",
+    "Location": "usa",
+    "ProjectName": "uo02",
+    "CustomerName": "Jacqueline",
+    "ID": "25"
+  },
+  {
+    "Sector": "Energy",
+    "Billing details": "1301 Avenue of the Americas ",
+    "Contact": "(573)523533452",
+    "Address": "1301 Avenue of the Americas ",
+    "CustomerAccount": "United Oil & Gas Corp",
+    "Location": "usa",
+    "ProjectName": "uo02",
+    "CustomerName": "Romenoph",
+    "ID": "27"
+  },
+  {
+    "Sector": "Energy",
+    "Billing details": "1301 Avenue of the Americas ",
+    "Contact": "(573)523528322",
+    "Address": "1301 Avenue of the Americas ",
+    "CustomerAccount": "United Oil & Gas Corp",
+    "Location": "usa",
+    "ProjectName": "uo02",
+    "CustomerName": "Mona",
+    "ID": "29"
+  },
+  {
+    "Sector": "Energy",
+    "Billing details": "1301 Avenue of the Americas ",
+    "Contact": "(573)523533452",
+    "Address": "1301 Avenue of the Americas ",
+    "CustomerAccount": "United Oil & Gas Corp",
+    "Location": "usa",
+    "ProjectName": "uo02",
+    "CustomerName": "Huggue",
+    "ID": "31"
+  }
+]

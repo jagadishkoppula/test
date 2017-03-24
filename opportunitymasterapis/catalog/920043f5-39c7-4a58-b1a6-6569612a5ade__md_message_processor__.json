@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "AggregateOut"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "AggregateOut"
+        }
+    },
+    "id": "920043f5-39c7-4a58-b1a6-6569612a5ade",
+    "version": "5.2.0.0"
+}

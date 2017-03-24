@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "AWSOut"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "AWSOut"
+        }
+    },
+    "id": "1a72c36b-0d97-4012-8563-b907bb4b1fdb",
+    "version": "5.2.0.0"
+}

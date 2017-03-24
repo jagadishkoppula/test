@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "BuisnessLogicIn"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "BuisnessLogicIn"
+        }
+    },
+    "id": "01dd9627-e1bd-4254-84aa-ecbb199cfa60",
+    "version": "5.2.0.0"
+}

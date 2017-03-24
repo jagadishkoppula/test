@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:dw="http://www.mulesoft.org/schema/mule/ee/dw" xmlns:json="http://www.mulesoft.org/schema/mule/json" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:munit="http://www.mulesoft.org/schema/mule/munit" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:core="http://www.mulesoft.org/schema/mule/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/munit http://www.mulesoft.org/schema/mule/munit/current/mule-munit.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/json http://www.mulesoft.org/schema/mule/json/current/mule-json.xsd
+http://www.mulesoft.org/schema/mule/ee/dw http://www.mulesoft.org/schema/mule/ee/dw/current/dw.xsd">
+    <spring:beans>
+        <spring:import resource="classpath:OpportunityMasterAPI.xml"/>
+    </spring:beans>
+    <munit:config mock-connectors="false" mock-inbounds="false" doc:name="MUnit configuration"/>
+    <http:request-config name="HTTP_Request_Configuration" host="localhost" port="8081" basePath="/api" doc:name="HTTP Request Configuration"/>
+    <munit:test name="get:/CustomerDetailsByPhone/phone:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/CustomerDetailsByPhone/phone:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/CustomerDetailsByPhone/{phone}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="phone" value="256-4295-3540"/>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_customerdetailsbyphone_{phone}_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/CustomerPhones:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/CustomerPhones:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/CustomerPhones" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_customerphones_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/CustomerProject/location:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/CustomerProject/location:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/CustomerProject/{location}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="location" value="usa"/>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_customerproject_{location}_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/Opportunity/Account:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/Opportunity/Account:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/Opportunity/{Account}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="Account" value="University of Arizona"/>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunity_{account}_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/OpportunityByLocation/eventlocation:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/OpportunityByLocation/eventlocation:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/OpportunityByLocation/{eventlocation}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="eventlocation" value="Anytown"/>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunitybylocation_{eventlocation}_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/OpportunityByModel/model:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/OpportunityByModel/model:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/OpportunityByModel/{model}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="model" value="Veyron"/>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunitybymodel_{model}_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/OpportunityDetails/stage:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/OpportunityDetails/stage:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/OpportunityDetails/{stage}" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:uri-param paramName="stage" value="Closed Won"/>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunitydetails_{stage}_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="get:/OpportunityPricingByCloseDate:OpportunityMasterAPI-config-200-application/json-FlowTest" description="Verifying functionality of [get:/OpportunityPricingByCloseDate:OpportunityMasterAPI-config-200-application/json]">
+        <http:request config-ref="HTTP_Request_Configuration" path="/OpportunityPricingByCloseDate" method="GET" doc:name="HTTP">
+            <http:request-builder>
+                <http:header headerName="Accept" value="application/json"/>
+            </http:request-builder>
+        </http:request>
+        <object-to-string-transformer doc:name="http response to string"/>
+        <munit:assert-true message="The HTTP Status code is not correct!" condition="#[messageInboundProperty('http.status').is(eq(200))]" doc:name="assert that - http.status eq 200"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunitypricingbyclosedate_application_json.json').asString()]" actualValue="#[payload]" doc:name="assert that - payload is as expected"/>
+    </munit:test>
+    <munit:test name="OpportunityMasterAPI-apikit-test-Transform_message_flowTest" description="Test">
+        <munit:set payload="#[getResource('scaffolder/response/without_transform.json').asString()]" mimeType="application/json" doc:name="Set Message"/>
+        <flow-ref name="Transform_message_flow" doc:name="Flow-ref to Transform_message_flow"/>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunitybylocation_{eventlocation}_application_json.json').asString()]" actualValue="#[payload]" doc:name="Assert Equals"/>
+    </munit:test>
+    <munit:test name="OpportunityMasterAPI-apikit-test-database_validatorTest" description="Test">
+        <set-variable variableName="modeltest" value="#[&quot;veyron&quot;]" doc:name="Variable"/>
+        <flow-ref name="database_validator" doc:name="database_validator"/>
+        <json:object-to-json-transformer doc:name="Object to JSON"/>
+        <dw:transform-message doc:name="Transform Message">
+            <dw:set-payload><![CDATA[%dw 1.0
+%output application/json
+---
+payload map ((payload01 , indexOfPayload01) -> {
+	phone: payload01.phone,
+	Visitor_Name: payload01.Visitor_Name,
+	Model: payload01.Model,
+	Location: payload01.Location,
+	Device_ID: payload01.Device_ID,
+	ID: payload01.ID,
+	Visit_Date: payload01.Visit_Date
+})]]></dw:set-payload>
+        </dw:transform-message>
+        <byte-array-to-string-transformer doc:name="Byte Array to String"/>
+        <munit:assert-on-equals message="The response payload is not correct!" expectedValue="#[getResource('scaffolder/response/get_200_opportunitybymodel_{model}_application_json.json').asString()]" actualValue="#[payload]" doc:name="Assert Equals"/>
+    </munit:test>
+</mule>

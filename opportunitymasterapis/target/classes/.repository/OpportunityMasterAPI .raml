@@ -1,0 +1,67 @@
+#%RAML 0.8
+title: OpportunityDetails
+version: V1.0
+securitySchemes:
+  - basic:
+      type: Basic Authentication
+baseUri: http://localhost:8082/opportunitydetails
+#mediaType: text/json
+/OpportunityDetails/{stage}:
+  get:
+    description: Based on stage retrieve opportunity details from salesforce
+    securedBy: [basic]
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Opportunity Name": "Buy More Generators",
+                "Account Name": "Mikes Bikes",
+                "Amount": "$2500.00",
+                "Close Date": "3/7/2015",
+                "Stage": "Value Proposition"
+               }
+/CustomerProject/{location}:
+  get:
+    description: Based on location retrieve Customer Project details from mySQL hosted on AWS
+    securedBy: [basic]
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "ID": "645612"  
+                "Customer Name": "Buy More Generators",
+                "Contact": "9446773493",
+                "Location": "North Carolina",
+                "Address": " Greensboro, North Carolina",
+                "CustomerAccount":"Burlington Textiles Corp of America",
+                "Billing details": "Burlington Textiles Corp 5844 South Oak Street North Carolina, 60667",
+                "ProjectName": "Value Proposition"
+                "Sector": "financial services"
+                }
+/Opportunity/{Account}:
+  get:
+    description: Based on Account retrieve Customer Project details from mySQL hosted on AWS and also opportunity details from salesforce- basically an aggregation.
+    securedBy: [basic]
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Opportunity Name": "Buy More Generators",
+                "ID": "645612", 
+                "Contact": "9446773493",
+                "Location": "North Carolina",
+                "Address": " Greensboro, North Carolina",
+                "CustomerAccount":"Burlington Textiles Corp of America",
+                "Billing details": "Burlington Textiles Corp 5844 South Oak Street North Carolina, 60667",
+                "ProjectName": "Value Proposition",
+                "Sector": "financial services",
+                "Amount": "$2500.00",
+                "Close Date": "3/7/2015",
+                "Stage": "Value Proposition"
+               }

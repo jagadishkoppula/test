@@ -1,0 +1,16 @@
+{
+    "inputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "StageOut"
+        }
+    },
+    "outputMessageMetadata": {
+        "messagePayload": {
+            "connectorName": "#_custom_mule_metadata_type_#",
+            "typeId": "StageOut"
+        }
+    },
+    "id": "a5a62106-3d51-4d46-a830-43490ee2b3e4",
+    "version": "5.2.0.0"
+}

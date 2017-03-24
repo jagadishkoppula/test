@@ -1,0 +1,151 @@
+#%RAML 0.8
+title: OpportunityDetails
+version: V1.0
+securitySchemes:
+  - basic:
+      type: Basic Authentication
+     
+baseUri: http://opportunitymasterapi.cloudhub.io/api
+traits:
+  - client-id-required:
+      queryParameters:
+        client_id:
+          type: string
+        client_secret:
+          type: string
+/OpportunityDetails/{stage}:
+  get:
+    is: [client-id-required]
+    description: Based on stage retrieve opportunity details from salesforce
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Opportunity Name": "Buy More Generators",
+                "Account Name": "Mikes Bikes",
+                "Amount": "$2500.00",
+                "Close Date": "3/7/2015",
+                "Stage": "Value Proposition"
+               }
+/CustomerProject/{location}:
+  get:
+    is: [client-id-required]
+    description: Based on location retrieve Customer Project details from mySQL hosted on AWS
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "ID": "645612", 
+                "Customer Name": "Buy More Generators",
+                "Contact": "9446773493",
+                "Location": "North Carolina",
+                "Address": " Greensboro, North Carolina",
+                "CustomerAccount": "Burlington Textiles Corp of America",
+                "Billing details": "Burlington Textiles Corp 5844 South Oak Street North Carolina, 60667",
+                "ProjectName": "Value Proposition",
+                "Sector": "financial services"
+                }
+/Opportunity/{Account}:
+  get:
+    is: [client-id-required]
+    description: Based on Account retrieve Customer Project details from mySQL hosted on AWS and also opportunity details from salesforce- basically an aggregation.
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Opportunity Name": "Buy More Generators",
+                "ID": "645612", 
+                "Contact": "9446773493",
+                "Location": "North Carolina",
+                "Address": " Greensboro, North Carolina",
+                "CustomerAccount": "Burlington Textiles Corp of America",
+                "Billing details": "Burlington Textiles Corp 5844 South Oak Street North Carolina, 60667",
+                "ProjectName": "Value Proposition",
+                "Sector": "financial services",
+                "Amount": "$2500.00",
+                "Close Date": "3/7/2015",
+                "Stage": "Value Proposition"
+               }
+/OpportunityByLocation/{eventlocation}:
+  get:
+    is: [client-id-required]
+    description: based on the location get visitor details from aws
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Device ID": "256-4295-3540",
+                "Visitor Name": "Muhammed MacIntyre", 
+                "Visit Date": "10/13/2010",
+                "Location": "Key West",
+                "Model": "Veyron",
+                "Phone": "256-4295-3540"
+               }
+/OpportunityByModel/{model}:
+  get:
+    is: [client-id-required]
+    description: based on the model get visitor details from aws
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Device ID": "256-4295-3540",
+                "Visitor Name": "Muhammed MacIntyre", 
+                "Visit Date": "10/13/2010",
+                "Location": "Key West",
+                "Model": "Veyron",
+                "Phone": "256-4295-3540"
+               }
+/CustomerDetailsByPhone/{phone}:
+  get:
+    is: [client-id-required]
+    description: based on the phone get coustomer details from salesforce
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              {
+                "Phone": "256-4295-3540",
+                "Coustomer Name": "Muhammed MacIntyre", 
+                "Address": "525 S. Lexington Ave",
+                "Location": "Key West",
+                "Model": "Veyron",
+                "Price": "$256498"
+                }
+/CustomerPhones:
+  get:
+    is: [client-id-required]
+    description: get coustomer phone numbers from salesforce
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: |
+              {
+                "Phone": "256-4295-3540"
+              }
+/OpportunityPricingByCloseDate:
+  get:
+    is: [client-id-required]
+    description: get the pricing detals of opportunity list in salesforce based on their close date. opportunity with close date 2014 are charged 200 while 2016 charged 300
+    responses: 
+      200:
+        body: 
+          application/json:
+            example: |
+              {
+              "CloseDate" : "2016-11-21",
+              "Price" : "300",
+              "Name" : "CarlosSoltero"
+              }
