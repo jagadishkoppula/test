@@ -232,8 +232,19 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/org.mule.modules/mule-module-json -->
+<dependency>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>mule-module-json</artifactId>
+    <version>3.8.1</version>
+</dependency>
+        <dependency>
+    <groupId>org.mule.modules</groupId>
+    <artifactId>mule-module-apikit</artifactId>
+    <version>3.8.3</version>
+</dependency>
     </dependencies>
-
+	
 	<repositories>
           <repository>
             <id>Central</id>
